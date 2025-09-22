@@ -1,0 +1,602 @@
+/* Futuristic 3D Navigation Bar Design */
+
+/* Enhanced Navbar Base */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95) 0%,
+        rgba(30, 41, 59, 0.95) 50%,
+        rgba(15, 23, 42, 0.95) 100%);
+    backdrop-filter: blur(25px) saturate(200%);
+    border: none;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+    z-index: 1000;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: navbarSlideIn 1s ease-out;
+    transform-style: preserve-3d;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 50px rgba(102, 126, 234, 0.1);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(102, 126, 234, 0.05) 0%,
+        rgba(245, 87, 108, 0.05) 25%,
+        rgba(79, 172, 254, 0.05) 50%,
+        rgba(118, 75, 162, 0.05) 75%,
+        rgba(102, 126, 234, 0.05) 100%);
+    background-size: 400% 100%;
+    animation: navbarGradientShift 8s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar:hover::before {
+    opacity: 1;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(102, 126, 234, 0.8) 20%,
+        rgba(245, 87, 108, 0.8) 40%,
+        rgba(79, 172, 254, 0.8) 60%,
+        rgba(102, 126, 234, 0.8) 80%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: navbarTopLine 6s linear infinite;
+}
+
+/* Enhanced Nav Container */
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+
+/* Futuristic Logo Design */
+.nav-logo {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: logoFloat3D 6s ease-in-out infinite;
+}
+
+.nav-logo h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, 
+        #667eea 0%, 
+        #764ba2 25%,
+        #f093fb 50%,
+        #f5576c 75%,
+        #4facfe 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: logoGradientFlow 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.8));
+    transform: translateZ(30px);
+    position: relative;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-logo h2::before {
+    content: 'KG';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.3) 0%,
+        rgba(118, 75, 162, 0.3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(2px);
+    z-index: -1;
+    transform: translateZ(-10px);
+    animation: logoShadowPulse 3s ease-in-out infinite;
+}
+
+.nav-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) translateZ(-20px);
+    animation: logoOrbitRing 8s linear infinite;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Advanced Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.nav-menu::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(102, 126, 234, 0.3) 50%,
+        transparent 100%);
+    transform: translateY(-50%) translateZ(-10px);
+    animation: menuUnderline 4s ease-in-out infinite;
+}
+
+.nav-item {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: navItemSlideIn 0.6s ease-out;
+    animation-delay: calc(var(--i) * 0.1s);
+    animation-fill-mode: both;
+    margin: 0 0.5rem;
+}
+
+.nav-item:nth-child(1) { --i: 1; }
+.nav-item:nth-child(2) { --i: 2; }
+.nav-item:nth-child(3) { --i: 3; }
+.nav-item:nth-child(4) { --i: 4; }
+.nav-item:nth-child(5) { --i: 5; }
+
+/* Futuristic Nav Links */
+.nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+/* Animated Background */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(102, 126, 234, 0.3) 30%,
+        rgba(245, 87, 108, 0.3) 50%,
+        rgba(79, 172, 254, 0.3) 70%,
+        transparent 100%);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -2;
+}
+
+/* Holographic Effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(102, 126, 234, 0.1) 60deg,
+        rgba(245, 87, 108, 0.1) 120deg,
+        rgba(79, 172, 254, 0.1) 180deg,
+        rgba(118, 75, 162, 0.1) 240deg,
+        rgba(102, 126, 234, 0.1) 300deg,
+        transparent 360deg
+    );
+    animation: holographicSpin 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+/* Particle Trail Effect */
+.nav-link .particle-trail {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 1), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: particleTrail 1s ease-out;
+}
+
+/* Hover Effects */
+.nav-link:hover {
+    color: #ffffff;
+    transform: translateY(-5px) translateZ(20px) scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(102, 126, 234, 0.4);
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover::after {
+    opacity: 0.8;
+}
+
+/* Active State */
+.nav-link.active {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.2) 0%,
+        rgba(118, 75, 162, 0.2) 100%);
+    border-color: rgba(102, 126, 234, 0.6);
+    color: #ffffff;
+    transform: translateZ(25px);
+    box-shadow: 
+        0 10px 25px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced Mobile Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateZ(10px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.bar {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    margin: 3px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: barShine 2s ease-in-out infinite;
+}
+
+/* Mobile Menu Enhanced */
+.nav-menu.active {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.98) 0%,
+        rgba(30, 41, 59, 0.98) 100%);
+    backdrop-filter: blur(25px) saturate(200%);
+    padding: 3rem 0;
+    gap: 1rem;
+    animation: mobileMenuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu.active .nav-link {
+    font-size: 1.2rem;
+    padding: 1.5rem 2rem;
+    width: 280px;
+    text-align: center;
+    margin: 0.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: mobileNavItemSlideIn 0.5s ease-out;
+    animation-delay: calc(var(--i) * 0.1s);
+    animation-fill-mode: both;
+}
+
+/* Scroll Effects */
+.navbar.scrolled {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.98) 0%,
+        rgba(30, 41, 59, 0.98) 100%);
+    backdrop-filter: blur(30px) saturate(200%);
+    padding: 0;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 60px rgba(102, 126, 234, 0.15);
+}
+
+.navbar.scrolled .nav-container {
+    padding: 1rem 2rem;
+}
+
+.navbar.scrolled .nav-logo h2 {
+    font-size: 1.8rem;
+}
+
+/* Advanced Keyframe Animations */
+@keyframes navbarSlideIn {
+    from {
+        transform: translateY(-100%) rotateX(-90deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes navbarGradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes navbarTopLine {
+    0% {
+        background-position: -200% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+@keyframes logoFloat3D {
+    0%, 100% {
+        transform: translateZ(30px) rotateY(0deg);
+    }
+    33% {
+        transform: translateZ(35px) rotateY(5deg);
+    }
+    66% {
+        transform: translateZ(25px) rotateY(-3deg);
+    }
+}
+
+@keyframes logoGradientFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes logoShadowPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateZ(-10px) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateZ(-10px) scale(1.05);
+    }
+}
+
+@keyframes logoOrbitRing {
+    0% {
+        transform: translate(-50%, -50%) translateZ(-20px) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateZ(-20px) rotateZ(360deg);
+    }
+}
+
+@keyframes menuUnderline {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(-50%) translateZ(-10px) scaleX(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(-50%) translateZ(-10px) scaleX(1.1);
+    }
+}
+
+@keyframes navItemSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) translateZ(-20px) rotateX(-45deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0) rotateX(0deg);
+    }
+}
+
+@keyframes holographicSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes particleTrail {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateZ(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) translateZ(10px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateZ(20px) translateX(20px);
+    }
+}
+
+@keyframes barShine {
+    0%, 100% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+}
+
+@keyframes mobileMenuSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+@keyframes mobileNavItemSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px) translateZ(-30px) rotateY(-45deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateZ(0) rotateY(0deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-logo::after {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.8rem;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-menu.active .nav-link {
+        width: 240px;
+        font-size: 1.1rem;
+        padding: 1.2rem 1.5rem;
+    }
+}
+
+/* High Performance Mode */
+@media (prefers-reduced-motion: no-preference) {
+    .navbar,
+    .nav-logo,
+    .nav-link {
+        will-change: transform;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .nav-logo h2,
+    .nav-link,
+    .nav-toggle,
+    .bar {
+        animation: none !important;
+        transition: none !important;
+    }
+}
